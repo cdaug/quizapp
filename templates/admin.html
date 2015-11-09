@@ -1,0 +1,33 @@
+{% set menu = 'main' %}
+{% set page = 'admin' %}
+{% extends "base.html" %}
+{% block title %}- Admin{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+  <main>
+    <h1>Welcome, {{ current_user.name }}</h1>
+    <h3>This is the admin page. You can set up anything on the website from here.</h3>
+    <hr>
+    <p>Hello, {{current_user.name}} this is your new settings page! Pretty much. Anyways, from here on all changes will effect the entire website, so please be careful!<br>We have a fallback alternative if everything breaks, but I would rather not initiate that program.</p>
+    <hr>
+    <div id="listsOfSettings">
+      <ul>
+        <li><h4 class="subheader">Quizzes-</h4></li>
+        <li><a href="{{url_for('createQuiz')}}">Create a Quiz</a></li>
+        <li><a href="{{url_for('updateQuiz')}}">Update a Quiz</a></li>
+        <li><a href="{{url_for('deleteQuiz')}}">Delete a Quiz</a></li>
+      </ul>
+      <ul>
+        <li><h4 class="subheader">Users-</h4></li>
+        <li><a href="{{url_for('createUser')}}">Create a User</a></li>
+        <li><a href="{{url_for('updateUser')}}">Update a User</a></li>
+        <li><a href="{{url_for('deleteUser')}}">Delete a User</a></li>
+      </ul>
+    </div>
+  </main>
+{% endblock %}
+{% block footer %}
+  <p class="copyright">This is copyrighted by Colin. In the year of <a id="date?" class="wierddate" title="I really hope you don't believe this. If you do, you are either in the future or just want to believe in impossible things. The actual time this webpage was made was in the year of 2015. Fun eh?" href="#date?">12345</a>. &copy 12345 All Rights Reserved</p>
+{% endblock %}

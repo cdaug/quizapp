@@ -1,0 +1,23 @@
+{% set menu = 'main' %}
+{% set page = 'userCreation' %}
+{% extends "base.html" %}
+{% block title %}- Create User{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+  <main>
+
+    <h1>User Creation</h1>
+
+    <form action="" method="post">
+        <p>Set a username: <input name="username" type="text" autocomplete="off"></p>
+        <p>Set a password: <input name="password" type="password" autocomplete="off"></p>
+        <input type="submit" value="Create">
+    </form>
+
+  </main>
+{% endblock %}
+{% block footer %}
+  {{ super() }}
+{% endblock %}

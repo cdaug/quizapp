@@ -1,0 +1,33 @@
+{% set menu = 'main' %}
+{% set page = 'quizCreation' %}
+{% extends "base.html" %}
+{% block title %}- Create Quiz{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+  <main>
+
+    <h1>Quiz Creation</h1>
+
+    <select id="selectElement">
+      <option value="multipleChoice" selected>"Multiple Choice" Quiz</option>
+      <option value="matching">"Matching" Quiz</option>
+      <option value="selectAllApplying">"Select All Applying" Quiz</option>
+      <option value="shortAnswer">"Short Answer" Quiz</option>
+      <option value="undetermined" selected>Select One...</option>
+    </select>
+
+    <hr>
+    <div id="creationArena">Blah blah blah bla bla bla blah, blah blah blah blah blah-blah</div>
+    <hr>
+
+  </main>
+{% endblock %}
+{% block footer %}
+  {{ super() }}
+  <script src="{{url_for('static', filename='script/eventemitter2.js')}}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.0/lodash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/velocity/1.2.2/velocity.min.js"></script>
+  <script src="{{url_for('static', filename='script/quizCreation.js')}}"></script>
+{% endblock %}
