@@ -36,7 +36,7 @@ var TICTACTOE = (function() {
     [[],[],[]],
     [[],[],[]],
     [[],[],[]]
-  ]
+  ];
 
   msgBoard = $('.messageboard');
   msgBoard.text("Welcome to Tic Tac Toe. To begin, click a square.");
@@ -208,7 +208,7 @@ var TICTACTOE = (function() {
         computerMove();
       }
       else {
-        msgBoard.text("Invalid Move! Someone has already captured that square!")
+        msgBoard.text("Invalid Move! Someone has already captured that square!");
       }
     }
     else if (move === "playerTwo") {
