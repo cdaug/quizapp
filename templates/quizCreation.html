@@ -21,6 +21,7 @@
 
     <hr>
     <div id="creationArea">Loading...</div>
+    <div id="quizDemo"></div>
     <hr>
 
   </main>
@@ -28,6 +29,7 @@
 {% block footer %}
   {{ super() }}
   <script src="{{url_for('static', filename='script/eventemitter2.js')}}"></script>
+  <script src="{{url_for('static', filename='script/handlebars.runtime-v4.0.5.js')}}"></script>
   <script src="{{url_for('static', filename='script/lodash.min.js')}}"></script>
   <script src="{{url_for('static', filename='script/velocity.min.js')}}"></script>
   <script src="{{url_for('static', filename='script/quizCreation.js')}}"></script>

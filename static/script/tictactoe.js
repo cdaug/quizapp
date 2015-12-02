@@ -15,9 +15,7 @@ var TICTACTOE = (function() {
       }
     });
 
-  var Evt = new EventEmitter2();
-
-  var square1, square2, square3, square4, square5, square6, square7, square8, square9, msgBoard, checkedSquare, gameBoard_el, gameBoard, coordinateY, coordinateX, computerSquare, move, computerWinMessage;
+  var Evt, square1, square2, square3, square4, square5, square6, square7, square8, square9, msgBoard, checkedSquare, gameBoard_el, gameBoard, coordinateY, coordinateX, computerSquare, move, computerWinMessage;
 
   computerWinMessage = "The Computer Wins! That was expected so much, I was loaded ahead of time to say this.";
   move = "playerOne";
@@ -31,6 +29,7 @@ var TICTACTOE = (function() {
   square8 = $('.square8');
   square9 = $('.square9');
   gameBoard_el = $('#gameBoard');
+  Evt = new EventEmitter2();
 
   gameBoard = [
     [[],[],[]],
@@ -194,15 +193,15 @@ var TICTACTOE = (function() {
     Evt.emit('updatedState', checkedSquare);
   }
 
-  function updateViewedGameBoard(y) {
+  function updateViewedGameBoard(z) {
     if (move === "playerOne") {
-      if (!y.hasClass("playerTwo") && !y.hasClass("playerOne")) {
-        coordinateY = y.data("y");
-        coordinateX = y.data("x");
+      if (!z.hasClass("playerTwo") && !z.hasClass("playerOne")) {
+        coordinateY = z.data("y");
+        coordinateX = z.data("x");
         gameBoard[coordinateY][coordinateX] = "X";
         console.log(gameBoard);
-        y.addClass("playerOne");
-        y.attr("src", "static/img/tttX.png");
+        z.addClass("playerOne");
+        z.attr("src", "static/img/tttX.png");
         msgBoard.text("Good move player one!");
         checkScore();
         computerMove();
@@ -212,13 +211,13 @@ var TICTACTOE = (function() {
       }
     }
     else if (move === "playerTwo") {
-      if (!y.hasClass("playerOne")) {
-        coordinateY = y.data("y");
-        coordinateX = y.data("x");
+      if (!z.hasClass("playerOne")) {
+        coordinateY = z.data("y");
+        coordinateX = z.data("x");
         gameBoard[coordinateY][coordinateX] = "O";
         console.log(gameBoard);
-        y.addClass("playerTwo");
-        y.attr("src", "static/img/tttO.png");
+        z.addClass("playerTwo");
+        z.attr("src", "static/img/tttO.png");
         move = "playerOne";
         checkScore();
       }

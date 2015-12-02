@@ -13,6 +13,7 @@ var QUIZCREATION = (function() {
   var select_el, creationArea, multipleChoice;
 
   creationArea = $('#creationArea');
+  quizDemo = $('#quizDemo');
   multipleChoice = $('#multipleChoice');
   saa = $('#selectAllApplying');
   shortAnswer = $('#shortAnswer');
@@ -40,12 +41,13 @@ var QUIZCREATION = (function() {
       Evt.emit('quizSelected', quizType);
     }
     else {
+      quizDemo.text('');
       creationArea.text('Please select a quiz type to start creating it here.');
     }
   }
 
   function createQuiz(e) {
-    
+    quizDemo.text(e);
   }
 
   function init() {

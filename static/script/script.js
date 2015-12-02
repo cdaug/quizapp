@@ -1,11 +1,21 @@
-function unhide() {
-  document.getElementById('test').style.display="block";
+function ready(fn) {
+  if (document.readyState != 'loading'){
+    fn();
+  } else {
+    document.addEventListener('DOMContentLoaded', fn);
+  }
 }
 
-function rehide() {
-  document.getElementById('test').style.display="none";
+function visible() {
+  document.getElementById('hiddenbook').style.display="block";
+}
+
+function hide() {
+  document.getElementById('hiddenbook').style.display="none";
 }
 
 function hideAnything(btn) {
   btn.style.display = 'none';
 }
+
+ready(hide());
