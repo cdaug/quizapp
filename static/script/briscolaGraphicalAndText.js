@@ -12,7 +12,7 @@ $(function() {
     msgBoard.text("Something failed, press 'R' to reload.");
 
     if (whichVersion === "") {
-      whichVersion = 'g'
+      whichVersion = 'g';
     }
 
   if (whichVersion === 'Graphical' | whichVersion === 'graphical' | whichVersion === 'Graphical ' | whichVersion === 'graphical ' | whichVersion === 'g') {
@@ -413,13 +413,13 @@ $(function() {
 
         // End the game and ask if the player wants to play again.
         function endGame() {
+          var playAgain = prompt("Player One Wins with the score being-\nPlayerOne: "+scoreOne+"\nPlayerTwo: "+scoreTwo+"\nPlay again?\n(Defaults to 'yes')");
           if (scoreOne > scoreTwo) {
-            var playAgain = prompt("Player One Wins with the score being-\nPlayerOne: "+scoreOne+"\nPlayerTwo: "+scoreTwo+"\nPlay again?\n(Defaults to 'yes')");
             if (playAgain === 'Yes' | playAgain === 'yes' | playAgain === "") {
               window.location.reload(false);
             }
             else if (playAgain === 'No' | playAgain === 'no') {
-              window.location.close;
+              window.location.close();
             }
           }
           else if (scoreOne < scoreTwo) {
@@ -428,7 +428,7 @@ $(function() {
               window.location.reload(false);
             }
             else if (playAgain === 'No' | playAgain === 'no') {
-              window.location.close;
+              window.location.close();
             }
           }
           else {
@@ -437,7 +437,7 @@ $(function() {
               window.location.reload(false);
             }
             else if (playAgain === 'No' | playAgain === 'no') {
-              window.location.close;
+              window.location.close();
             }
           }
         }
@@ -898,13 +898,13 @@ $(function() {
         }
 
         function finalScore() {
+          var playAgain = prompt("Player One Wins with the score being-\nPlayerOne: "+scoreOne+"\nPlayerTwo: "+scoreTwo+"\nPlay again?\n(Defaults to 'yes')");
           if (scoreOne > scoreTwo) {
-            var playAgain = prompt("Player One Wins with the score being-\nPlayerOne: "+scoreOne+"\nPlayerTwo: "+scoreTwo+"\nPlay again?\n(Defaults to 'yes')");
             if (playAgain === 'Yes' | playAgain === 'yes' | playAgain === "") {
               window.location.reload(false);
             }
             else if (playAgain === 'No' | playAgain === 'no') {
-              window.location.close;
+              window.location.close();
             }
           }
           else if (scoreOne < scoreTwo) {
@@ -913,7 +913,7 @@ $(function() {
               window.location.reload(false);
             }
             else if (playAgain === 'No' | playAgain === 'no') {
-              window.location.close;
+              window.location.close();
             }
           }
           else {
@@ -922,7 +922,7 @@ $(function() {
               window.location.reload(false);
             }
             else if (playAgain === 'No' | playAgain === 'no') {
-              window.location.close;
+              window.location.close();
             }
           }
         }

@@ -10,6 +10,9 @@ c.execute("""CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREM
 
 c.execute("""CREATE TABLE IF NOT EXISTS quizzes (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(25) NOT NULL UNIQUE, description VARCHAR(250), questions INTEGER NOT NULL)""")
 
+username = "Colin"
+c.execute('SELECT password FROM users WHERE username=?', (username,))
+
 conn.commit()
 conn.close()
 
@@ -35,15 +38,6 @@ class User(UserMixin):
     USERS = {
         'admin':'password'
     }
-
-    conn = sqlite3.connect('logins.sqlite')
-    c = conn.cursor()
-
-    for row in c.execute('SELECT * FROM users ORDER BY id'):
-        USERS
-
-    conn.commit()
-    conn.close()
 
     def __init__(self, id):
         if not id in self.USERS:

@@ -10,54 +10,33 @@ var QUIZCREATION = (function() {
 
   var Evt = new EventEmitter2();
 
-  var select_el, creationArea, multipleChoice;
+  var autoGradeButton, manualGradeButton;
+  autoGradeButton = $('#autoGradeButton');
+  manualGradeButton = $('#manuallyGradeButton');
+  hiddenInput = $('#hiddenthing');
 
-  creationArea = $('#creationArea');
-  quizDemo = $('#quizDemo');
-  multipleChoice = $('#multipleChoice');
-  saa = $('#selectAllApplying');
-  shortAnswer = $('#shortAnswer');
-  matching = $('#matching');
-  undetermined = $('#undetermined');
-
-
-  function checkType() {
-    quizType = $(this).val();
-    console.log(quizType);
-    if (quizType === 'multipleChoice') {
-      creationArea.text('You have selected a Multiple Choice Quiz.');
-      Evt.emit('quizSelected', quizType);
-    }
-    else if (quizType === 'matching') {
-      creationArea.text('You have selected a Matching Quiz.');
-      Evt.emit('quizSelected', quizType);
-    }
-    else if (quizType === 'selectAllApplying') {
-      creationArea.text('You have selected a Select All Applying Quiz.');
-      Evt.emit('quizSelected', quizType);
-    }
-    else if (quizType === 'shortAnswer') {
-      creationArea.text('You have selected a Short Answer Quiz.');
-      Evt.emit('quizSelected', quizType);
-    }
-    else {
-      quizDemo.text('');
-      creationArea.text('Please select a quiz type to start creating it here.');
-    }
+  function setupAuto() {
+    alert('Starting Automatically Graded Quiz');
+    $(this).velocity({'opacity': '-25'}, {duration: "slow"});
+    manualGradeButton.velocity({'opacity': '-25'}, {duration: "slow"});
+    manualGradeButton.remove();
+    autoGradeButton.remove();
+    hiddenInput.velocity({'opacity': '25'}, {duration: "5000"});
   }
 
-  function createQuiz(e) {
-    quizDemo.text(e);
+  function setupManual() {
+    alert('Starting Manually Graded Quiz');
+    $(this).velocity({'opacity': '-25'}, {duration: "5000"});
+    autoGradeButton.velocity({'opacity': '-25'}, {duration: "5000"});
+    autoGradeButton.remove();
+    manualGradeButton.remove();
+    hiddenInput.velocity({'opacity': '25'}, {duration: "5000"});
   }
 
   function init() {
-    multipleChoice.on('click', checkType);
-    saa.on('click', checkType);
-    shortAnswer.on('click', checkType);
-    matching.on('click', checkType);
-    undetermined.on('click', checkType);
-    Evt.addListener('quizSelected', createQuiz);
-    creationArea.text('Please select a quiz type to start creating it here.');
+    hiddenInput.velocity({'opacity': '-25'}, {duration: "fast"});
+    autoGradeButton.on('click', setupAuto);
+    manualGradeButton.on('click', setupManual);
   }
 
   return {

@@ -447,3 +447,9 @@ img.square9 {
   display: inline;
   list-style: none;
 }
+
+#autoGradeButton, #manuallyGradeButton {
+  width: 15em;
+  height: 3em;
+  margin: 1em;
+}

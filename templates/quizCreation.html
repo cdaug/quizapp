@@ -9,20 +9,13 @@
   <main>
 
     <h1>Quiz Creation</h1>
-    <h4>You must select one of the types by clicking it</h4>
+    <h4>What kind of quiz would you like to create?</h4>
 
-    <select autofocus id="selectElement">
-      <option id="multipleChoice" value="multipleChoice">"Multiple Choice" Quiz</option>
-      <option id="matching" value="matching">"Matching" Quiz</option>
-      <option id="selectAllApplying" value="selectAllApplying">"Select All Applying" Quiz</option>
-      <option id="shortAnswer" value="shortAnswer">"Short Answer" Quiz</option>
-      <option id="undetermined" value="undetermined" selected>Select One...</option>
-    </select>
-
-    <hr>
-    <div id="creationArea">Loading...</div>
-    <div id="quizDemo"></div>
-    <hr>
+    <button id="autoGradeButton">Automatically Graded Quiz</button><button id="manuallyGradeButton">Manually Graded Quiz</button>
+    <br>
+    <span id="hiddenthing">
+      <input id="hiddenInput" autofocus="true" placeholder="Placeholder"></input>
+    </span>
 
   </main>
 {% endblock %}
